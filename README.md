@@ -23,4 +23,4 @@ I will build a docker image with a go program precompiled. Then I can run it whe
 ```
 
 ### Notes
-If you want the image to get deleted, uncomment the corresponding in [run-go-with-Dockerfile.sh](scripts\run-go-with-Dockerfile.sh).
+If you want the image to get deleted, uncomment the corresponding in [run-go-with-Dockerfile.sh](scripts/run-go-with-Dockerfile.sh).
