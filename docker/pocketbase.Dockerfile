@@ -1,4 +1,4 @@
-FROM scratch
+FROM scratch AS empty
 COPY ./executables/pocketbase /bin/pb
 ENTRYPOINT [ "/bin/pb" ]
 

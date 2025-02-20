@@ -1,0 +1,45 @@
+services: 
+  http-svc-1:
+    image: nginx:alpine3.21
+    container_name: http-c-1
+    restart: unless-stopped
+    ports:
+      - 8081:80
+    volumes:
+      - ../../dist/usr/share/nginx/html:ro
+      #-v /some/content:/usr/share/nginx/html:ro
+  
+  http-svc-2:
+    image: nginx:alpine3.21
+    container_name: http-c-2
+    restart: unless-stopped
+    ports:
+      - 8082:80
+    volumes:
+      - ../../dist/usr/share/nginx/html:ro
+      #-v /some/content:/usr/share/nginx/html:ro
+  
+  pb-svc:
+   container_name: pb-c
+   build:
+    context: ../../
+    dockerfile: docker/pocketbase.Dockerfile
+    target: empty
+   image: lr98524/pb-i:latest 
+   restart: unless-stopped
+   ports:
+    - 8084:95
+   volumes:
+   - ../../dist:/usr/share/ngninx/html:ro
+
+
+  #alp-s:
+   # image: alpine:3.21.3
+    #container_name: alp-c
+    #tty: true
+    #stdin_open: true
+    #restart: unless-stopped
+    #working_dir: /root
+    #volumes:
+       #- ./docker-compose.yaml/root/dc.yaml
+    
